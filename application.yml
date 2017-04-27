@@ -1,0 +1,13 @@
+server:
+  applicationConnectors:
+  - type: http
+    port: 9000
+  adminConnectors:
+  - type: http
+    port: 9001
+uberTokenKey : J1VDEtjdrKqcXiHUa5m_WY09s_6kKJLFVhFMCH8F
+
+couchbase.username : admin
+couchbase.pasword :
+couchbase.bucket : default
+
