@@ -9,6 +9,8 @@
 
 // Apply the java plugin to add support for Java
 apply plugin: 'java'
+apply plugin: 'gradle-one-jar'
+
 
 // In this section you declare where to find the dependencies of your project
 repositories {
@@ -24,9 +26,28 @@ dependencies {
     compile 'io.dropwizard:dropwizard-core:1.1.0'
     compile 'com.couchbase.client:java-client:2.4.4'
     compile 'com.uber.sdk:rides:0.6.0'
+
+
+
+
     // Declare the dependency for your favourite test framework you want to use in your tests.
     // TestNG is also supported by the Gradle Test task. Just change the
     // testCompile dependency to testCompile 'org.testng:testng:6.8.1' and add
     // 'test.useTestNG()' to your build script.
     testCompile 'junit:junit:4.11'
+}
+
+
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.github.rholder:gradle-one-jar:1.0.4'
+    }
+}
+
+task fatJar(type: OneJar) {
+    mainClass = 'com.ai6.MainApplication'
 }

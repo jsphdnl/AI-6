@@ -11,3 +11,6 @@ couchbase.username : admin
 couchbase.pasword :
 couchbase.bucket : default
 
+uber.clientId : XoT8ajDNflh1HzvHsLlMJaqszkBpiG4s
+uber.serverToken : J1VDEtjdrKqcXiHUa5m_WY09s_6kKJLFVhFMCH8F
+

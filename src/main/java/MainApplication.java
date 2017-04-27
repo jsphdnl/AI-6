@@ -1,14 +1,18 @@
+import com.ai6.cabintent.CabBaseServices;
+import com.ai6.cabintent.uber.UberClient;
 import com.ai6.exceptions.InternalServerException;
-import com.ai6.exceptions.ResourceNotFoundException;
 import com.ai6.exceptions.ResourceNotFoundExceptionMapper;
 import com.ai6.exceptions.UnAuthorizedExceptionMapper;
 import com.ai6.repositories.UserRepository;
+import com.ai6.resources.CabController;
 import com.ai6.resources.UserController;
 import com.ai6.services.UserService;
+import com.ai6.utils.UberCustomClient;
 import com.ai6.wrapper.CouchBaseWrapper;
 import com.couchbase.client.deps.com.fasterxml.jackson.databind.ObjectMapper;
 import com.couchbase.client.java.Bucket;
 import com.couchbase.client.java.CouchbaseCluster;
+import com.uber.sdk.rides.client.SessionConfiguration;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Environment;
 
@@ -44,6 +48,24 @@ public class MainApplication extends Application<MainConfiguration>{
         environment.jersey().register(mapper);
 
 
+        SessionConfiguration uberConfig = new SessionConfiguration.Builder()
+            .setClientId(configuration.getUberClientId())
+            .setEnvironment(SessionConfiguration.Environment.SANDBOX)
+            .setServerToken(configuration.getUberClientToken())
+            .build();
+
+
+        //ServerTokenSession uberSession = new ServerTokenSession(uberConfig);
+
+        //Uber Client
+        UberCustomClient uberCustomClient = new UberCustomClient(configuration.getUberClientToken());
+        UberClient uberClient = new UberClient(uberConfig, uberCustomClient);
+        //cabService
+        CabBaseServices cabBaseServices = new CabBaseServices(uberClient);
+
+        //Cab Controller
+        CabController cabController = new CabController(cabBaseServices);
+
         //Please user a DI
         UserRepository userRepository = new UserRepository(wrapper, mapper);
         UserService userService = new UserService(userRepository);
@@ -51,6 +73,7 @@ public class MainApplication extends Application<MainConfiguration>{
 
         //Repositories
         environment.jersey().register(userController);
+        environment.jersey().register(cabController);
         //Services
 /*        environment.jersey().register(UserService.class);
         //Controllers

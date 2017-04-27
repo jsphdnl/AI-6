@@ -2,12 +2,8 @@ package com.ai6.resources;
 
 import com.ai6.models.Users;
 import com.ai6.services.UserService;
-import com.couchbase.client.deps.com.fasterxml.jackson.core.JsonProcessingException;
-import javafx.application.Application;
-import org.eclipse.jetty.http.HttpHeader;
 
 import javax.ws.rs.*;
-import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
 
 /**

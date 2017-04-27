@@ -14,10 +14,30 @@ public class MainConfiguration extends Configuration{
   private String couchBasePassword;
   @JsonProperty("couchbase.bucket")
   private String couchBaseBucket;
+  @JsonProperty("uber.clientId")
+  private String uberClientId;
+  @JsonProperty("uber.serverToken")
+  private String uberClientToken;
 
 
   public String getCouchBaseUserName() {
     return couchBaseUserName;
+  }
+
+  public String getUberClientId() {
+    return uberClientId;
+  }
+
+  public void setUberClientId(String uberClientId) {
+    this.uberClientId = uberClientId;
+  }
+
+  public String getUberClientToken() {
+    return uberClientToken;
+  }
+
+  public void setUberClientToken(String uberClientToken) {
+    this.uberClientToken = uberClientToken;
   }
 
   public void setCouchBaseUserName(String couchBaseUserName) {
@@ -47,4 +67,7 @@ public class MainConfiguration extends Configuration{
   public void setUberTokenKey(String uberTokenKey) {
     this.uberTokenKey = uberTokenKey;
   }
+
+
+
 }
