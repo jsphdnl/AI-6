@@ -4,10 +4,7 @@ import com.ai6.cabintent.CabBaseServices;
 import com.ai6.models.Address;
 import com.ai6.models.Ride;
 
-import javax.ws.rs.Consumes;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 import java.io.IOException;
 
@@ -42,7 +39,9 @@ public class CabController {
   @Path("cheapest")
   @Consumes("application/json")
   @Produces("application/json")
-  public Response cheapest(Ride ride) throws IOException {
+  public Response cheapest(Ride ride, @QueryParam("service") String service,
+      @QueryParam("cabType") String cabType,
+      @QueryParam("pool") Boolean pool) throws IOException {
     return Response.ok(cabBaseServices.cheapest(ride)).build();
   }
 

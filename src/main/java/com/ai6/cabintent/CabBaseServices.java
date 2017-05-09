@@ -5,6 +5,7 @@ import com.ai6.models.Address;
 import com.ai6.models.Ride;
 import com.uber.sdk.rides.client.model.Product;
 
+import javax.ws.rs.QueryParam;
 import java.io.IOException;
 import java.util.List;
 
@@ -28,7 +29,9 @@ public class CabBaseServices {
   }
 
 
-  public Ride cheapest(Ride ride) throws IOException {
+  public Ride cheapest(Ride ride, String service,
+      String cabType,
+      Boolean pool) throws IOException {
     return uberClient.cheapestRide(ride);
   }
 

@@ -15,6 +15,7 @@ import com.uber.sdk.rides.client.model.*;
 import com.uber.sdk.rides.client.services.RidesService;
 import retrofit2.Response;
 
+import javax.ws.rs.QueryParam;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.List;
@@ -67,7 +68,9 @@ public class UberClient implements CabInterface{
     return null;
   }
 
-  public Ride cheapestRide(Ride ride) throws IOException{
+  public Ride cheapestRide(Ride ride, String service,
+       String cabType,
+      Boolean pool) throws IOException{
     List<Product> products = fetchRides(ride.toAddress());
     BigDecimal min  = BigDecimal.ZERO;
     RideEstimate minRideEstimate = null;
@@ -84,7 +87,7 @@ public class UberClient implements CabInterface{
         continue;
       }
 
-      if(minEstimate.getLowEstimate().compareTo(estimate.getLowEstimate()) < 0){
+      if(minEstimate.getLowEstimate().compareTo(estimate.getLowEstimate()) > 0){
         minEstimate = estimate;
       }
     }
