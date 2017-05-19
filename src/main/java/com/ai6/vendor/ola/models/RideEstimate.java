@@ -4,7 +4,7 @@ package com.ai6.vendor.ola.models;
  * Created by bharath on 5/8/17.
  */
 public class RideEstimate {
-  "category": "mini",
+/*  "category": "mini",
       private String category;
       private float distance;
       "distance": 0,
@@ -12,5 +12,5 @@ public class RideEstimate {
       private float timeMinutes;
       "amount_min": 64,
 
-      "amount_max": 73
+      "amount_max": 73*/
 }
