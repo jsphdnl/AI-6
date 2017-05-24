@@ -49,5 +49,5 @@ buildscript {
 }
 
 task fatJar(type: OneJar) {
-    mainClass = 'com.ai6.MainApplication'
+    mainClass = 'MainApplication'
 }

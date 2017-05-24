@@ -42,7 +42,7 @@ public class CabController {
   public Response cheapest(Ride ride, @QueryParam("service") String service,
       @QueryParam("cabType") String cabType,
       @QueryParam("pool") Boolean pool) throws IOException {
-    return Response.ok(cabBaseServices.cheapest(ride)).build();
+    return Response.ok(cabBaseServices.cheapest(ride, service, cabType, pool)).build();
   }
 
   @POST

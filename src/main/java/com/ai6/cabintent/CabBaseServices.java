@@ -32,7 +32,7 @@ public class CabBaseServices {
   public Ride cheapest(Ride ride, String service,
       String cabType,
       Boolean pool) throws IOException {
-    return uberClient.cheapestRide(ride);
+    return uberClient.cheapestRide(ride, service, cabType, pool);
   }
 
   public Object pool(Address address){
