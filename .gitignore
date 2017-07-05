@@ -3,5 +3,6 @@
 *.iml
 build/
 gradle/
+data/
 
 
