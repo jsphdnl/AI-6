@@ -1,8 +1,6 @@
 package com.ai6.ikyrus.cabmodule.core.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 /**
  * Created by bharath on 7/5/17.

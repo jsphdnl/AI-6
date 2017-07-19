@@ -1,10 +1,7 @@
 package com.ai6.ikyrus.cabmodule.uber.controller;
 
 import com.ai6.ikyrus.cabmodule.uber.UberAuthentication;
-import com.ai6.ikyrus.cabmodule.uber.UberEstimateRide;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
