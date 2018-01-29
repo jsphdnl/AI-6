@@ -32,6 +32,8 @@ dependencies {
 		exclude module: 'slf4j-log4j12'
 	}
 	compileOnly('org.projectlombok:lombok')
+	compile('io.springfox:springfox-swagger2:2.7.0')
+	compile('io.springfox:springfox-swagger-ui:2.7.0')
 	compile ('com.uber.sdk:rides:0.6.0') {
 		exclude module: 'slf4j-log4j12'
 	}

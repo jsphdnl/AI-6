@@ -17,7 +17,7 @@ import java.util.List;
  * Created by bharath on 7/5/17.
  */
 @RestController
-@RequestMapping("/rideestimate")
+@RequestMapping("api/rideestimate")
 public class CabController {
 
     @Autowired
